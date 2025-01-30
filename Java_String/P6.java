@@ -5,14 +5,22 @@ import java.util.*;
 class P6 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine(), sub = sc.nextLine();
-        int c = 0, i = 0;
+        char[] a = sc.nextLine().toCharArray();
+        char[] b = sc.nextLine().toCharArray();
+        int c = 0;
 
-        while ((i = s.indexOf(sub, i)) != -1) {
-            c++;
-            i += sub.length();
+        for (int i = 0; i <= a.length - b.length; i++) {
+            boolean f = true;
+            for (int j = 0; j < b.length; j++) {
+                if (a[i + j] != b[j]) {
+                    f = false;
+                    break;
+                }
+            }
+            if (f) c++;
         }
 
         System.out.println(c);
     }
 }
+

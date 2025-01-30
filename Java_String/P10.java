@@ -7,14 +7,17 @@ class P10 {
         Scanner sc = new Scanner(System.in);
         String s = sc.next();
         char c = sc.next().charAt(0);
-        
-        StringBuilder res = new StringBuilder();
+        String res = "";
+
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) != c) {
-                res.append(s.charAt(i));
+                res = res.concat(s.substring(i, i + 1));
             }
         }
-        
-        System.out.println("Modified String: " + res.toString());
+
+        System.out.println("Modified String: " + res);
     }
 }
+
+
+
