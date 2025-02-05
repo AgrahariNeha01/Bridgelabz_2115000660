@@ -73,3 +73,9 @@ Object Oriented Programming.<br>
 1. Java Constructors<br>
 2. Instance vs. Class Variables<br>
 3. Access Modifiers Level 1<br><br>
+
+<h3>#02-05-25</h3>
+1.Object Oriented Design Principles
+- Class Diagram
+- Object Diagrams
+- Sequence Diagrams
