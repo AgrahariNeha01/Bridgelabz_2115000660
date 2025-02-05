@@ -75,7 +75,7 @@ Object Oriented Programming.<br>
 3. Access Modifiers Level 1<br><br>
 
 <h3>#05-02-25</h3>
-1.Object Oriented Design Principles
-- Class Diagram
-- Object Diagrams
-- Sequence Diagrams
+1.Object Oriented Design Principles<br>
+- Class Diagram<br>
+- Object Diagrams<br>
+- Sequence Diagrams<br>
