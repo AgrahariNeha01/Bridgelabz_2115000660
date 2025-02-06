@@ -2,42 +2,48 @@ import java.util.*;
 
 class University {
     String n;
-    List<Department> dpts = new ArrayList<>();
+    List<Department> d = new ArrayList<>();
 
     University(String n) {
         this.n = n;
     }
 
-    void addDept(Department d) {
-        dpts.add(d);
+    void addD(Department dept) {
+        d.add(dept);
     }
 
-    void removeDept(Department d) {
-        dpts.remove(d);
+    void remD(Department dept) {
+        d.remove(dept);
     }
 
-    void showDepartments() {
-        for (Department d : dpts) {
-            System.out.println("Department: " + d.n);
+    void showD() {
+        System.out.println("D in " + n + ":");
+        for (Department dept : d) {
+            System.out.println("D: " + dept.n);
         }
+    }
+
+    void delU() {
+        d.clear();
     }
 }
 
 class Department {
     String n;
-    List<Faculty> facs = new ArrayList<>();
+    List<Faculty> f = new ArrayList<>();
 
     Department(String n) {
         this.n = n;
     }
 
-    void addFaculty(Faculty f) {
-        facs.add(f);
+    void addF(Faculty faculty) {
+        f.add(faculty);
     }
 
-    void showFaculties() {
-        for (Faculty f : facs) {
-            System.out.println("Faculty: " + f.n);
+    void showF() {
+        System.out.println("F in " + n + " D:");
+        for (Faculty faculty : f) {
+            System.out.println("F: " + faculty.n);
         }
     }
 }
@@ -48,45 +54,34 @@ class Faculty {
     Faculty(String n) {
         this.n = n;
     }
-}
 
-class P5 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-       
-        String uniName = sc.nextLine();
-        University uni = new University(uniName);
-
-        System.out.print("Enter number of departments in " + uniName + ": ");
-        int deptCount = sc.nextInt();
-        sc.nextLine();
-
-        for (int i = 0; i < deptCount; i++) {
-            String deptName = sc.nextLine();
-            Department dept = new Department(deptName);
-
-            System.out.print("Enter number of faculty members in " + deptName + ": ");
-            int facultyCount = sc.nextInt();
-            sc.nextLine();
-
-            for (int j = 0; j < facultyCount; j++) {
-                String facultyName = sc.nextLine();
-                Faculty fac = new Faculty(facultyName);
-                dept.addFaculty(fac);
-            }
-
-            uni.addDept(dept);
-        }
-
-        System.out.println("\nUniversity Departments:");
-        uni.showDepartments();
-
-        System.out.println("\nFaculty Members in Departments:");
-        for (Department dept : uni.dpts) {
-            dept.showFaculties();
-        }
-
-        sc.close();
+    void showFD() {
+        System.out.println("F: " + n);
     }
 }
+
+public class P5 {
+    public static void main(String[] args) {
+        University u = new University("Tech U");
+        Department d1 = new Department("CS");
+        Department d2 = new Department("EE");
+        Faculty f1 = new Faculty("Dr. J");
+        Faculty f2 = new Faculty("Dr. E");
+        d1.addF(f1);
+        d2.addF(f2);
+        u.addD(d1);
+        u.addD(d2);
+        u.showD();
+        d1.showF();
+        d2.showF();
+        u.delU();
+        u.showD();
+        f1.showFD();
+        f2.showFD();
+    }
+}
+
+
+// // Aggregation relationship use kiya hai (University-Department-Faculty ka structure).
+// University delete hone se Departments delete ho jate hain, but Faculty members independent hote hain.
+// Ye real-world system ko simulate karta hai jisme educational institutions ka structure dikhaya gaya hai.

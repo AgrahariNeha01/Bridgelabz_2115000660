@@ -2,85 +2,96 @@ import java.util.*;
 
 class Order {
     int o_id;
-    List<Product> products = new ArrayList<>();
-    double total;
+    List<Product> p = new ArrayList<>();
+    double t;
 
     Order(int o_id) {
         this.o_id = o_id;
     }
 
-    void addProduct(Product p) {
-        products.add(p);
-        total += p.price;
+    void addP(Product p) {
+        this.p.add(p);
+        t += p.p_price;
     }
 
-    void showOrderDetails() {
-        System.out.println("Order ID: " + o_id);
-        for (Product p : products) {
-            System.out.println("Product: " + p.name + ", Price: " + p.price);
+    void showOD() {
+        System.out.println("O ID: " + o_id);
+        for (Product p : this.p) {
+            System.out.println("P: " + p.p_name + ", P: " + p.p_price);
         }
-        System.out.println("Total: " + total);
+        System.out.println("T: " + t);
     }
 }
 
 class Customer {
     String c_name;
-    List<Order> orders = new ArrayList<>();
+    List<Order> o = new ArrayList<>();
 
     Customer(String c_name) {
         this.c_name = c_name;
     }
 
-    void placeOrder(Order o) {
-        orders.add(o);
+    void placeO(Order o) {
+        this.o.add(o);
     }
 
-    void showCustomerOrders() {
-        System.out.println("Orders placed by " + c_name + ":");
-        for (Order o : orders) {
-            o.showOrderDetails();
+    void showCO() {
+        System.out.println("O placed by " + c_name + ":");
+        for (Order o : this.o) {
+            o.showOD();
         }
     }
 }
 
 class Product {
-    String name;
-    double price;
+    String p_name;
+    double p_price;
 
-    Product(String name, double price) {
-        this.name = name;
-        this.price = price;
+    Product(String p_name, double p_price) {
+        this.p_name = p_name;
+        this.p_price = p_price;
     }
 }
 
 class P7 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String c_Name = sc.nextLine();
-        Customer customer = new Customer(c_Name);
 
-        System.out.print("Enter number of orders for " + c_Name+ ": ");
-        int o_Count = sc.nextInt();
+        System.out.print("C N: ");
+        String c_name = sc.nextLine();
+        Customer c = new Customer(c_name);
+
+        System.out.print("No of O: ");
+        int o_no = sc.nextInt();
         sc.nextLine();
 
-        for (int i = 0; i < o_Count; i++) {
-            int o_Id = sc.nextInt();
-            sc.nextLine();
-            Order order = new Order(o_Id);
-            int p_Count = sc.nextInt();
+        for (int i = 0; i < o_no; i++) {
+            System.out.print("O ID: ");
+            int o_id = sc.nextInt();
             sc.nextLine();
 
-            for (int j = 0; j < p_Count; j++) {
-                String p_Name = sc.nextLine();
-                double p_Price = sc.nextDouble();
+            Order o = new Order(o_id);
+
+            System.out.print("No of P: ");
+            int p_no = sc.nextInt();
+            sc.nextLine();
+
+            for (int j = 0; j < p_no; j++) {
+                System.out.print("P N: ");
+                String p_name = sc.nextLine();
+                System.out.print("P P: ");
+                double p_price = sc.nextDouble();
                 sc.nextLine();
-                Product product = new Product(p_Name, p_Price);
-                order.addProduct(product);
+
+                Product p = new Product(p_name, p_price);
+                o.addP(p);
             }
-            customer.placeOrder(order);
+
+            c.placeO(o);
         }
 
-        customer.showCustomerOrders();
+        c.showCO();
         sc.close();
     }
 }
+// Yeh pura system Customer → Orders → Products ke relation ko implement karta hai.
