@@ -94,8 +94,8 @@ Object Oriented Programming.<br>
  
  
 <h3>#10-02-25</h3>
-1.Encapsulation
-2.Abstract Classes
-3.Polymorphism
-4.Interfaces
+1.Encapsulation<br>
+2.Abstract Classes<br>
+3.Polymorphism<br>
+4.Interfaces<br>
 
