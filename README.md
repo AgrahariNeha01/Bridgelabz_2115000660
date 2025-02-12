@@ -99,3 +99,7 @@ Object Oriented Programming.<br>
 3.Polymorphism<br>
 4.Interfaces<br>
 
+<h3>#12-02-25</h3>
+1.Single Linked List<br>
+2.Double Linked List<br>
+3.Circular Linked List<br>
