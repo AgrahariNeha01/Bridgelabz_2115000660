@@ -114,4 +114,12 @@ Object Oriented Programming.<br>
 3.Merge Sort<br>
 4.Quick Sort<br>
 
+<h3>#15-02-25</h3>
+1.StringBuilder<br>
+2.StringBuffer<br>
+3.FileReader<br>
+4.InputStreamReader<br>
+5.Linear Search<br> 
+6.Binary Search<br>
+
 
