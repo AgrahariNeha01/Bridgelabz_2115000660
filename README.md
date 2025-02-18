@@ -126,4 +126,6 @@ Object Oriented Programming.<br>
 1.General Algorithm Best Practices<br>
 2.Time and space Complexity Optimization<br>
 
+<h3>#18-02-25</h3>
+1.Generic class
 
